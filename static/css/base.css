@@ -1,0 +1,15 @@
+.logo{
+    width: 80px;
+}
+
+body{
+    background: #f3f3f3;
+}
+
+.main{
+    background: #ffffff;
+    width: 900px;
+    margin: auto;
+    overflow: hidden;
+}
+

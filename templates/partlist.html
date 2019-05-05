@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}零件列表{% endblock %}
+
+{% block head1 %}
+{#    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/login-regist.css') }}">#}
+{% endblock %}
+
+{% block main %}
+    <div class="login-container">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+              <h2 class="page-header">新增零件</h2>
+                <form action="" method="post">
+                  <div class="table-responsive">
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>零件名称</th>
+                          <th>零件号</th>
+                          <th>供应商</th>
+                          <th>STA</th>
+                          <th>项目经理</th>
+                          <th>归属项目</th>
+                          <th>投产时间</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><input type="text" size="8" name="part_name1"></td>
+                          <td><input type="text" size="8" name="part_no1"></td>
+                          <td><input type="text" size="8" name="supplier1"></td>
+                          <td><input type="text" size="8" name="sta1"></td>
+                          <td><input type="text" size="8" name="pm1"></td>
+                          <td><input type="text" size="8" name="project1"></td>
+                          <td><input type="date" size="8" name="ls_time1"></td>
+                          <td><input type="submit" value="添加"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+
+              <h2 class="sub-header">零件列表</h2>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>零件名称</th>
+                      <th>零件号</th>
+                      <th>供应商</th>
+                      <th>STA</th>
+                      <th>项目经理</th>
+                      <th>归属项目</th>
+                      <th>投产时间</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% if part != 1 %}
+    {#                  通过for循环语句将零件信息逐条显示出来#}
+                        {% for i in part %}
+                            <tr>
+                              <td>{{ i.id }}</td>
+                              <td>{{ i.part_name1 }}</td>
+                              <td>
+                                  <a target="_blank" href="{{ url_for('apqp', part_id = i.id) }}">{{ i.part_no1 }}</a>
+                              </td>
+                              <td>{{ i.supplier1 }}</td>
+                              <td>{{ i.sta1 }}</td>
+                              <td>{{ i.pm1 }}</td>
+                              <td>{{ i.project1 }}</td>
+                              <td>{{ i.ls_time1 }}</td>
+                            </tr>
+                        {% endfor %}
+                      {% endif %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+{% endblock %}
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+{#    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>#}
+
